@@ -3,6 +3,7 @@ package com.example.pmakkaraphon.freelancewroks.API;
 import android.util.Log;
 
 import com.example.pmakkaraphon.freelancewroks.Model.LoginModel;
+import com.example.pmakkaraphon.freelancewroks.Model.LogoutModel;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -49,6 +50,34 @@ public class ConnectionManager {
 
             @Override
             public void onFailure(Call<LoginModel> call, Throwable t) {
+                Log.d("onFailure", t.getMessage());
+            }
+        });
+    }
+
+    public void logout(final LogoutCallbackListener listener, String user) {
+        Call call = con.setLogout(user);
+        call.enqueue(new Callback<LogoutModel>() {
+
+            @Override
+            public void onResponse(Call<LogoutModel> call, Response<LogoutModel> response) {
+                LogoutModel user = response.body();
+                if (user == null) {
+                    //404 or the response cannot be converted to User.
+                    ResponseBody responseBody = response.errorBody();
+                    if (responseBody != null) {
+                        listener.onBodyError(responseBody);
+                    } else {
+                        listener.onBodyErrorIsNull();
+                    }
+                } else {
+                    //200
+                    listener.onResponse(user, retrofit);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogoutModel> call, Throwable t) {
                 Log.d("onFailure", t.getMessage());
             }
         });

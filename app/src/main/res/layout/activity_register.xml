@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/shapeemail"
-            android:drawableLeft="@drawable/ic_settings_phone_black_24dp"
+            android:drawableLeft="@drawable/ic_phone_black_24dp"
             android:drawablePadding="10dp"
             android:hint="หมายเลขโทรศัพท์"
             android:inputType="phone"

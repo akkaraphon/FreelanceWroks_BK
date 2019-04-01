@@ -2,7 +2,11 @@
 <resources>
     <color name="colorPrimary">#04566c</color>
     <color name="colorPrimaryDark">#1f748b</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#85F3FF</color>
     <color name="white">#FFFFFF</color>
     <color name="signupColor">#066e8a</color>
+    <color name="stGreen">#20D328</color>
+    <color name="stOrange">#FF6231</color>
+    <color name="stYellow">#FFC107</color>
+    <color name="stRed">#FF0000</color>
 </resources>

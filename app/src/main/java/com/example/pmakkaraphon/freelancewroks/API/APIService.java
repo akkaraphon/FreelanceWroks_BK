@@ -1,6 +1,7 @@
 package com.example.pmakkaraphon.freelancewroks.API;
 
 import com.example.pmakkaraphon.freelancewroks.Model.LoginModel;
+import com.example.pmakkaraphon.freelancewroks.Model.LogoutModel;
 
 import java.io.File;
 
@@ -19,6 +20,12 @@ public interface APIService {
     Call<LoginModel> authentication(
             @Field("username") String user,
             @Field("password") String pass
+    );
+
+    @FormUrlEncoded
+    @POST("setLogout")
+    Call<LogoutModel> setLogout(
+            @Field("id_mem") String user
     );
 
 
